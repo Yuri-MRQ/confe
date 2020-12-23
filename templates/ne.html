@@ -1,0 +1,121 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/table.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/popup.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/collapsibles.css') }}">
+<script src="static/java/popup.js"></script>
+<script src="static/java/collapsibles.js"></script>
+
+
+<h1 class ="title">Notas de Empenho</h1>
+        
+        <button type="button" class="collapsible" onclick= colapssible("collapsible")>Filtros</button>
+            <div class="content">
+                <div class = "filtro">
+                    <h3 id="subtitulo">Filtro</h3>
+                    <form action="" method="post" novalidate>
+                        {{ filtro_form.hidden_tag() }}
+                        <div class="filtro1">
+                            {% if nav == 'gnho' %}
+                          <div>
+                              {{ filtro_form.om.label }}<br>
+                              {{ filtro_form.om(size=1, class_ = 'form') }}
+                          </div>
+                        {% endif %}
+                        <div>
+                            {{ filtro_form.fornecedor.label }}<br>
+                            {{ filtro_form.fornecedor(size=1) }}
+                        </div>
+                        <div>
+                              {{ filtro_form.solemp.label }}<br>
+                              {{ filtro_form.solemp(size=32) }}
+                            </div>
+                        </div>
+                        
+                        <div class="filtro2">
+                            <div>
+                                {{ filtro_form.ne.label }}<br>
+                                {{ filtro_form.ne(size=32) }}
+                            </div>
+                              <div>
+                                {{ filtro_form.data.label }}<br>
+                                {{ filtro_form.data(size=32) }}
+                            </div>
+                        </div>
+                        
+                      
+                          <div>{{ filtro_form.submit() }}</div>
+                    </form>
+            </div>
+
+    
+            </div>
+            
+            <p>
+                <div class = "pag_links">
+                    {{ pagination.links }}
+                    {{ pagination.info }}
+                </div>
+                
+            </p>
+
+        <table id="t01">
+            <tr>
+                {% if nav == 'gnho' %}
+                <th><a href="{{ url_for('nota_empenho') }}"><img src="{{ url_for('static',filename='img/add-file.png') }}" alt="inserir ne" width="30" height="30"></a>
+                </th>
+                {% endif %}
+                <th>ID</th>
+                <th>Navio</th>
+                <th>Fornecedor</th>
+                <th>SOLEMP</th>
+                <th>Data SOLEMP</th>
+                <th>NE</th>
+                <th>Valor</th>
+                <th>Data</th>
+                {% if nav == 'gnho' %}
+                <th> </th>
+                {% endif %}
+
+            </tr>
+
+            {% for rows in query %}
+                <tr>
+                    {% if nav == 'gnho' %}
+                    <td>
+                        <button class="open-button" onclick='openForm({{rows["id"] | tojson}})'>Upload</button>
+                        <div class="form-popup" id="{{ rows['id'] }}">
+                            
+                                <form action="/ne/upload/{{ rows['id'] }}" class="form-container" method="post" enctype="multipart/form-data" novalidate>
+                                    <h1>Upload</h1>
+                                    {{ form.hidden_tag() }}
+                                    <p>{{ form.files(size=32) }}</p>
+                                    <p>{{ form.submit() }}</p>
+                                    <button type="submit" class="btn cancel" onclick='closeForm({{rows["id"] | tojson}})'>Close</button>
+                                </form>
+                        </div>
+                                        
+                    </td>
+                    {% endif %}
+                    {% if rows['id'] in filenames %}
+                    <td><a href="/download_file/ne/{{ filenames[rows['id']] }}">{{ rows['id'] }}</a></td>
+                    {% else %}
+                    <td>{{ rows['id'] }}</td>
+                    {% endif %}
+                    <td>{{ rows['nav'] }}</td>
+                    <td >{{ rows['nome_fornecedor'] }}</td>
+                    <td >{{ rows['n_solemp'] }}</td>
+                    <td>{{ (rows['data_solemp'] if rows['data_solemp'] is none else rows['data_solemp'].strftime("%d/%m/%y")) }}</td>
+                    <td >{% if nav == 'gnho' %}<a href="ne-{{ rows['id'] }}">{% endif %}{{ rows['n_ne'] }}</a></td>
+                    <td >{{ rows['vl_ne'] }}</td>
+                    <td >{{ rows['data_ne'].strftime("%d/%m/%y") }}</td>
+                    {% if nav == 'gnho' %}
+                    <td><a href="/delete_row/ne/{{ rows['id'] }}"><img src="{{ url_for('static',filename='img/delete.png') }}" alt="botao deletar" width="30" height="30"></a></a></td>
+                    {% endif %}
+                </tr>    
+            {% endfor %}
+        </table>
+        
+          
+
+{% endblock %}

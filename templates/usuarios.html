@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/table.css') }}">
+<h1 class ="title">Usuários</h1>
+        
+        <p>
+            <div class = "pag_links">
+                {{ pagination.links }}
+                {{ pagination.info }}
+            </div>
+        </p>
+
+        <table id="t01">
+            <tr>
+                <th><a href="{{ url_for('cadastro_usuario') }}"><img src="{{ url_for('static',filename='img/add-file.png') }}" alt="inserir usuario" width="30" height="30"></a>
+                </th>
+                <th>Usuario</th>
+                <th>Nip</th>
+                <th>Perfil</th>
+                <th>OM</th>
+                <th></th>
+            
+            </tr>
+            {% for rows in query %}
+            <tr>
+                <td>{{ rows['id'] }} </td> 
+                <td><a href="/usuario-{{ rows['id'] }}">{{ rows['usuario'] }}</a></td>
+                <td >{{ rows['nip'] }}</td>
+                <td >{{ rows['perfil'] }}</td>
+                <td >{{ rows['om'] }}</td>
+                <td ><a href="/delete_row/usuarios/{{ rows['id'] }}"><img src="{{ url_for('static',filename='img/delete.png') }}" alt="botao deletar" width="30" height="30"></a></td>
+            </tr>    
+            {% endfor %}
+        </table>
+            
+{% endblock %}

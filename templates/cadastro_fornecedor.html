@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block content %}
+<h1 class="title">Cadastrar novo fornecedor</h1>
+        <div class = "form">
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <div id='form-box'>
+                    <p>
+                        {{ form.nome_fornecedor.label }}<br>
+                        {{ form.nome_fornecedor(size=32) }}
+                    </p>
+                    <p>
+                        {{ form.cnpj.label }}<br>
+                        {{ form.cnpj(size=32) }}
+                    </p>
+                    <p>{{ form.submit() }}</p>
+                </div>
+                
+            </form>
+        </div>
+        
+{% endblock %}

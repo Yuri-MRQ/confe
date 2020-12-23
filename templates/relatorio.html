@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+{% block content %}
+<h1 class ="title">Relatórios</h1>
+
+<div class = "form">
+  <form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+      <div id = "form-box">
+        
+        <p>
+          {{ form.rel_pre_def.label }}<br>
+          {{ form.rel_pre_def(size=1) }}
+        </p>     
+
+        {% if nav == 'gnho' %}
+
+        <p>
+          {{ form.nav.label }}<br>
+          {{ form.nav(size=1) }}
+        </p>
+
+        {% endif %}
+        <p>
+          {{ form.data_inicial.label }}<br>
+          {{ form.data_inicial(size=32) }}
+        </p>
+        
+        <p>{{ form.data_final.label }}<br>
+          {{ form.data_final(size=32) }}</p>
+        
+        {{ form.submit() }} 
+    
+
+      </div>
+      
+  </form>
+</div>
+
+        
+{% endblock %}

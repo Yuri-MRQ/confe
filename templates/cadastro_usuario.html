@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block content %}
+<h1 class="title">Cadastrar novo usuário</h1>
+
+    <div class="form">
+      <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div id='form-box'>
+          <p>
+            {{ form.nip.label }}<br>
+            {{ form.nip(size=32) }}
+          </p>
+          <p>
+              {{ form.usuario.label }}<br>
+              {{ form.usuario(size=32) }}
+          </p>
+          <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+          </p>
+          <p>
+            {{ form.perfil.label }}<br>
+            {{ form.perfil(size=32) }}
+          </p>
+          <p>
+            {{ form.om.label }}<br>
+            {{ form.om(size=1) }}
+          </p>
+          <p>{{ form.submit() }}</p>
+        </div>
+        
+    </form>
+    </div>
+    
+{% endblock %}

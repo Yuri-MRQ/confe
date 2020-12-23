@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block content %}
+
+
+<h1 class ="title">Fornecedores</h1>
+        
+        <p>
+            <div class = "pag_links">
+                {{ pagination.links }}
+                {{ pagination.info }}
+            </div>
+        </p>
+
+        <table id="t02">
+            <tr>
+                <th id='column1'><a href="{{ url_for('cadastro_fornecedor') }}"><img src="{{ url_for('static',filename='img/add-file.png') }}" alt="inserir fornecedor" width="30" height="30"></a></th>
+                <th id='column2'>Nome da empresa</th>
+                <th id='column3'>CNPJ</th>
+                <th id='lastcolumn'></th>
+            </tr>
+
+            {% for rows in query %}
+                <tr>
+                    <td>{{ rows['id'] }}</td>
+                    <td>{{ rows['nome_fornecedor'] }}</td>
+                    <td><a href="/fornecedor-{{ rows['id'] }}">{{ rows['cnpj'] }}</a></td>
+                    <td><a href="/delete_row/fornecedor/{{ rows['id'] }}"><img src="{{ url_for('static',filename='img/delete.png') }}" alt="botao deletar" width="30" height="30"></a></a></td>
+                </tr>    
+            {% endfor %}
+        </table>
+
+        
+          
+{% endblock %}

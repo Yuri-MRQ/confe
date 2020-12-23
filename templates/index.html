@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/sidebar.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/table.css') }}">
+        <script src="static/java/sidebar.js"></script>
+        
+        
+    </head>
+    <body>
+        
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href= "{{ url_for('relatorio') }}">Relatórios</a>
+            <a href= "{{ url_for('ver_nfiscais') }}">Nota Fiscal</a>
+            <a href= "{{ url_for('ver_empenhos') }}">Nota de Empenho</a>
+            {% if nav.lower() == 'gnho'%}
+            <a href= "{{ url_for('fornecedor') }}">Fornecedor</a>
+            <a href= "{{ url_for('users') }}">Usuários</a>
+            {% endif %}
+            <a href= "{{ url_for('login') }}">Login</a>
+            <a href= "{{ url_for('logout') }}">Logout</a>
+            
+        </div>
+
+        <div id="main">
+            <button class="openbtn" onclick="openNav()">☰</button>  
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <h4>{{ message }}</h4>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            {% block content %}
+            {% endblock %}
+            
+        </div>  
+
+    </body>
+</html> 

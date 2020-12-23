@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+{% block content %}
+  
+<h1 class= "title">Editar Nota Fiscal</h1>
+
+
+    <div class="form">
+      <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div id='form-box'>
+          <p>
+            {{ form.n_ne.label }}<br>
+            {{ form.n_ne(size=32) }}
+          </p>
+          <p>
+            {{ form.n_nf.label }}<br>
+            {{ form.n_nf(size=32) }}
+          </p>
+          <p>
+              {{ form.vl_nf.label }}<br>
+              {{ form.vl_nf(size=32) }}
+          </p>
+          <p>
+              {{ form.data_nf.label }}<br>
+              {{ form.data_nf(size=32) }}
+          </p>
+          <p>
+            {{ form.data_pg.label }}<br>
+            {{ form.data_pg(size=32) }}
+          </p>
+      
+          <p>{{ form.submit() }}</p>
+        </div>
+          
+    </form>
+    </div>
+
+    
+
+{% endblock %}
