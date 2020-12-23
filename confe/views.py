@@ -12,7 +12,7 @@ from datetime import datetime
 from flask_login import current_user, login_user, logout_user
 from models import (User, update_dados,
  check_table, check_file, seek_files, filtro)
-from init import app
+#from init import app
 from forms import (LoginForm, CadastroForm, FornecedorForm, neForm, nfForm, editusuario, 
 editneForm, editnfForm, EditFornecedorForm, UploadForm, RelatorioForm, filtros)
 from db import fornecedores, nota_fiscal, empenhos, db, usuarios, db_usuarios
