@@ -8,7 +8,7 @@ app = Flask(__name__, instance_relative_config=True)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-app.config.from_object('config.DevelopmentConfig')
+app.config.from_object('config.DevelopmentConfigcd')
 app.config.from_pyfile('config.py')
 
 login = LoginManager()
