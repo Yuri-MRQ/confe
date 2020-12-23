@@ -4,7 +4,6 @@ from flask import request, redirect, send_file
 from flask_login import LoginManager, login_required
 from flask_paginate import Pagination, get_page_parameter, get_page_args
 import sys
-import pandas as pd
 import glob
 import os
 import json
@@ -14,7 +13,7 @@ from confe.models import (User, update_dados,
  check_table, check_file, seek_files, filtro)
 from confe.forms import (LoginForm, CadastroForm, FornecedorForm, neForm, nfForm, editusuario, 
 editneForm, editnfForm, EditFornecedorForm, UploadForm, RelatorioForm, filtros)
-from db import fornecedores, nota_fiscal, empenhos, db, usuarios, db_usuarios
+from instance.db import fornecedores, nota_fiscal, empenhos, db, usuarios, db_usuarios
 from sqlalchemy import types
 from werkzeug.utils import secure_filename
 from confe.relatorios import rel
@@ -28,7 +27,7 @@ navios = [('GNHo', 'GNHo'), ('H-44', 'H-44'), ('H-41', 'H-41'), ('H-40', 'H-40')
 @app.route('/')
 def inicio():
     return redirect('/inicio')
-    
+
 @app.route('/inicio')
 @login_required
 def home():    

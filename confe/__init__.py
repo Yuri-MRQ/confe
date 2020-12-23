@@ -4,11 +4,12 @@ from flask_login import LoginManager
 
 UPLOAD_FOLDER = '~/programacao/Flask/controles/confe/instance'
 
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-app.config.from_object('config')
+app.config.from_object('config.DevelopmentConfig')
+app.config.from_pyfile('config.py')
 
 login = LoginManager()
 login.session_protection = 'strong'

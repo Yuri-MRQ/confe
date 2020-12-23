@@ -9,7 +9,7 @@ from dataset import Table
 from confe import login, app
 import os
 from confe.forms import UploadForm
-from db import usuarios, db_usuarios
+from instance.db import usuarios, db_usuarios
 
 
 #criar classe usuario para adicionar informações ao bd

@@ -1,3 +1,3 @@
 import os
 
-SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+SECRET_KEY = "b'\x14;]\x14o\xc5\x19\x11s\x85\xfeU<:q\x83'"
