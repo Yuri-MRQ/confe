@@ -10,7 +10,7 @@ from reportlab.lib.colors import pink, black, red, blue, green
 import datetime
 
 
-logo_marinha = '/home/ymquint/programacao/Flask/controles/confe/static/img/marinha.png'
+logo_marinha = '/home/ymquint/confe/confe/static/img/marinha.png'
 
 
 def nivel_agrup1(c, column,value, x, y):
