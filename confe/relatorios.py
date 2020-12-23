@@ -8,7 +8,7 @@ from reportlab.lib.pagesizes import letter, A4, landscape
 from reportlab.lib.units import cm
 from reportlab.lib.colors import pink, black, red, blue, green
 import datetime
-from rel_gen import (nivel_agrup1, nivel_agrup2, nivel_agrup3, nivel_agrup4,
+from confe.rel_gen import (nivel_agrup1, nivel_agrup2, nivel_agrup3, nivel_agrup4,
 footer, column_value, cursormoves1, layout_rel)
 import traceback
 

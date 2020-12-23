@@ -6,9 +6,9 @@ from sqlalchemy import create_engine, types
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 from dataset import Table
-from init import login, app
+from confe import login, app
 import os
-from forms import UploadForm
+from confe.forms import UploadForm
 from db import usuarios, db_usuarios
 
 

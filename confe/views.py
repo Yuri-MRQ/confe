@@ -10,22 +10,25 @@ import os
 import json
 from datetime import datetime
 from flask_login import current_user, login_user, logout_user
-from models import (User, update_dados,
+from confe.models import (User, update_dados,
  check_table, check_file, seek_files, filtro)
-#from init import app
-from forms import (LoginForm, CadastroForm, FornecedorForm, neForm, nfForm, editusuario, 
+from confe.forms import (LoginForm, CadastroForm, FornecedorForm, neForm, nfForm, editusuario, 
 editneForm, editnfForm, EditFornecedorForm, UploadForm, RelatorioForm, filtros)
 from db import fornecedores, nota_fiscal, empenhos, db, usuarios, db_usuarios
 from sqlalchemy import types
 from werkzeug.utils import secure_filename
-from relatorios import rel
-from statements import statement
+from confe.relatorios import rel
+from confe.statements import statement
+from confe import app
 
 
 navios = [('GNHo', 'GNHo'), ('H-44', 'H-44'), ('H-41', 'H-41'), ('H-40', 'H-40'), ('H-39', 'H-39'),
  ('H-38', 'H-38'), ('H-36', 'H-36'), ('H-35', 'H-35'), ('H-34', 'H-34'), ('H-21', 'H-21'), ('H-11', 'H-11')]
 
-
+@app.route('/')
+def inicio():
+    return redirect('/inicio')
+    
 @app.route('/inicio')
 @login_required
 def home():    
