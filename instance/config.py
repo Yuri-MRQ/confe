@@ -1,3 +1,0 @@
-import os
-
-SECRET_KEY = "b'\x14;]\x14o\xc5\x19\x11s\x85\xfeU<:q\x83'"
