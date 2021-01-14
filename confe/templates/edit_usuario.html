@@ -1,11 +1,12 @@
 {% extends "index.html" %}
 {% block content %}
+
 <h1 class= "title">Editar usuário</h1>
 
     <div class="form">
       <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        <div id='form-box'>
+        <div id='form-box' class="form-box">
           <p>
             {{ form.nip.label }}<br>
             {{ form.nip(size=32) }}

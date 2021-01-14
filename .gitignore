@@ -3,3 +3,6 @@ __pycache__/
 __pycache__/
 __pycache__/
 instance/config.py
+build/
+confe.egg-info/
+dist/

@@ -12,6 +12,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 #main { 
   width: 100%;  
+  position: relative;
 }
 
 
@@ -67,7 +68,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 select {
-  width: 70%;
+  width: 100%;
   border: 1px solid black;
   margin: 1px 1px 1px;
   border-radius: 4px;
@@ -75,7 +76,7 @@ select {
 }
 
 input[type=password]{
-  width: 40%;
+  width: 70%;
   border: 1px solid black;
   margin: 1px 1px 1px;
   box-sizing: content-box;
@@ -93,7 +94,7 @@ input[type=password]:focus {
 }
 
 input[type=text] {
-  width: 40%;
+  width: 70%;
   border: 1px solid black;
   margin: 1px 1px 1px;
   box-sizing: content-box;
@@ -122,13 +123,6 @@ div{
   display:inline-block;
 }
 
-.filtro {
-  border: 1px solid rgb(160, 160, 160);
-  margin: 20px 1px 20px;
-  width: 100%;
-  align-items: center;
-}
-
 #subtitulo{
   margin: 0px 10px 20px;
   text-align: center;
@@ -137,6 +131,17 @@ div{
 .pag_links{
   text-align: left;
   margin-left: -50px;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filtro {
+  border: 1px solid rgb(160, 160, 160);
+  margin: 0 auto;
+  width: 100%;
+  align-items: center;
 }
 
 .filtro1{
@@ -152,15 +157,23 @@ div{
 }
 
 .form{
-  margin: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 30%);
 }
+
 
 #form-box{
   border: 2px solid rgb(160, 160, 160);
-  margin: 0px 570px 0px;
   padding: 10px 30px;
+  justify-content: center;
   background-color: #555;
-  color: #ffffff;  
+  color: #ffffff;
+}
+
+#form-box p{
+  text-align: match-parent;
 }
 
 #text-info{

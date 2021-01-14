@@ -17,16 +17,16 @@
                         {{ filtro_form.hidden_tag() }}
                         <div class="filtro1">
                             {% if nav == 'gnho' %}
-                          <div>
-                              {{ filtro_form.om.label }}<br>
-                              {{ filtro_form.om(size=1, class_ = 'form') }}
-                          </div>
-                        {% endif %}
-                        <div>
-                            {{ filtro_form.fornecedor.label }}<br>
-                            {{ filtro_form.fornecedor(size=1) }}
-                        </div>
-                        <div>
+                            <div>
+                                {{ filtro_form.om.label }}<br>
+                                {{ filtro_form.om(size=1) }}
+                            </div>
+                            {% endif %}
+                            <div>
+                                {{ filtro_form.fornecedor.label }}<br>
+                                {{ filtro_form.fornecedor(size=1) }}
+                            </div>
+                            <div>
                               {{ filtro_form.nota_fiscal.label }}<br>
                               {{ filtro_form.nota_fiscal(size=32) }}
                             </div>
