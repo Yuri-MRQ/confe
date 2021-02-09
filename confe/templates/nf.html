@@ -106,9 +106,11 @@
                         <td><a href="/delete_row/nf/{{ rows['id'] }}">
                             <img src="{{ url_for('static',filename='img/delete.png') }}" alt="botao deletar" width="30" height="30">
                             </a>
+                            {% if nav == 'gnho' %}
                             <a href="/set_date/{{ rows['id'] }}">
                                 <img src="{{ url_for('static',filename='img/pg.png') }}" alt="pagar nf" width="30" height="30" >
                             </a>
+                            {% endif %}
                         </td>
                     </tr>    
                 {% endfor %}

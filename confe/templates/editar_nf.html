@@ -24,10 +24,12 @@
               {{ form.data_nf.label }}<br>
               {{ form.data_nf(size=32) }}
           </p>
+          {% if nav == 'gnho' %}
           <p>
             {{ form.data_pg.label }}<br>
             {{ form.data_pg(size=32) }}
           </p>
+          {% endif %}
       
           <p>{{ form.submit() }}</p>
         </div>
